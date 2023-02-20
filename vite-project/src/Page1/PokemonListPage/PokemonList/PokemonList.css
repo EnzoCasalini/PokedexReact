@@ -1,0 +1,9 @@
+.pokemonList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 2.2rem;
+    background-color: #242C38;
+    padding: 150px 20px 80px 20px;
+}
