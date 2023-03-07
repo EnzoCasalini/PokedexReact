@@ -6,9 +6,6 @@ import pokemonTypesContext from '../../../../../pokemonContext.jsx';
 const PokemonInfos = ({name, image, types = []}) => {
 
 	const pokemonTypes = useContext(pokemonTypesContext);
-	console.log(pokemonTypes);
-
-
 
 	return (
 		<div className={"pokemonInfos"}>

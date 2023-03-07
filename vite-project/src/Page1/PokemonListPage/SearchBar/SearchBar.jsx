@@ -1,12 +1,17 @@
 import React, {useState} from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({onSearch}) => {
 	const [search, setSearch] = useState('');
+
+	const handleSearch = (event) => {
+		setSearch(event.target.value);
+		onSearch(event.target.value);
+	}
 
 	return (
 		<div className={"searchBarDiv"}>
-			<input type="text" className={"searchBarInput"} placeholder="Enter a Pokemon name" value={search} onChange={(e) => {setSearch(e.target.value)}}/>
+			<input type="text" className={"searchBarInput"} placeholder="Enter a Pokemon name" value={search} onChange={handleSearch}/>
 		</div>
 	);
 };
