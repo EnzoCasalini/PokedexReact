@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import './PokemonList.css';
 import PokemonCard from './PokemonCard/PokemonCard.jsx';
+import languageContext from '../../../languageContext';
 
 const PokemonList = ({searchText}) => {
 	const [pokemonList, setPokemonList] = useState([]);
 	const [filteredPokemonList, setFilteredPokemonList] = useState([]);
+
+	const { language, changeLanguage } = useContext(languageContext);
 
 	useEffect(() => {
 		const getPokemons = async () => {
@@ -22,7 +25,7 @@ const PokemonList = ({searchText}) => {
 		if (searchText !== '')
 		{
 			const filteredPokemons = pokemonList.filter((pokemon) => {
-				return pokemon.names.fr.toLowerCase().includes(searchText.toLowerCase());
+				return pokemon.names[language].toLowerCase().includes(searchText.toLowerCase());
 			});
 
 			setFilteredPokemonList(filteredPokemons);
@@ -38,7 +41,7 @@ const PokemonList = ({searchText}) => {
 			{
 				filteredPokemonList.map((pokemon, index) => {
 					return (
-						<PokemonCard key={index} id={pokemon.id} name={pokemon.names.fr} image={pokemon.image} types={pokemon.types} />
+						<PokemonCard key={index} id={pokemon.id} name={pokemon.names[language]} image={pokemon.image} types={pokemon.types} />
 					);
 				})
 			}

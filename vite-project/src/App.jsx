@@ -9,10 +9,16 @@ import AppWrapper from './AppWrapper.jsx';
 import PokemonListPage from './Page1/PokemonListPage/PokemonListPage.jsx';
 import PokemonDetailsPage from './Page1/PokemonDetailsPage/PokemonDetailsPage.jsx';
 import pokemonTypesContext from './pokemonContext.jsx';
+import languageContext from './languageContext';
 import {useEffect, useState} from 'react';
 
 function App() {
     const [typeList, setTypeList] = useState([]);
+    const [language, setLanguage] = useState("fr");
+
+    const changeLanguage = (newLanguage) => {
+      setLanguage(newLanguage);
+    }
 
     useEffect(() => {
         const getTypeList = async () => {
@@ -37,7 +43,9 @@ function App() {
 
     return (
         <pokemonTypesContext.Provider value={typeList}>
+          <languageContext.Provider value={{ language, changeLanguage }}>
             <RouterProvider router={router} />
+          </languageContext.Provider>
         </pokemonTypesContext.Provider>
     )
 }
