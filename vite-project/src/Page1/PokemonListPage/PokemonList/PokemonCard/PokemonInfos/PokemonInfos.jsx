@@ -2,6 +2,9 @@ import React, {useEffect, useState, useContext} from 'react';
 import './PokemonInfos.css';
 import pokemonTypesContext from '../../../../../pokemonContext.jsx';
 import languageContext from '../../../../../languageContext';
+import PlaceholderImage from '../../../../../assets/pokeball.gif';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 
 const PokemonInfos = ({name, image, types = []}) => {
 
@@ -12,7 +15,10 @@ const PokemonInfos = ({name, image, types = []}) => {
 		<div className={"pokemonInfos"}>
 			<h3 className={"pokemonName"}>{name}</h3>
 			<div className={"pokemonImg"}>
-				<img src={image} alt={name}/>
+				<LazyLoadImage src={image}
+				placeholderSrc={PlaceholderImage}
+				alt={name}
+				/>
 			</div>
 			<div className="pokemonTypes">
 			{
