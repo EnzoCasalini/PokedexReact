@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './SearchBar.css';
+import {Box, TextField} from "@mui/material";
 
 const SearchBar = ({onSearch}) => {
 	const [search, setSearch] = useState('');
@@ -10,9 +10,37 @@ const SearchBar = ({onSearch}) => {
 	}
 
 	return (
-		<div className={"searchBarDiv"}>
-			<input type="text" className={"searchBarInput"} placeholder="Enter a Pokemon name" value={search} onChange={handleSearch}/>
-		</div>
+		<Box sx={{
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			backgroundColor: '#242C38',
+			padding: '120px 20px 0px 20px',
+			width: '100%'
+			}}
+		>
+			<TextField id="outlined-basic"
+					   variant="outlined"
+					   placeholder="Enter a Pokemon name"
+					   value={search}
+					   onChange={handleSearch}
+					   color={"secondary"}
+					   fullWidth
+					   inputProps={{ style: { color: '#fff' }}}
+					   sx={{
+						   borderColor: '#fff',
+						   '& .MuiOutlinedInput-root': {
+							   '& fieldset': {
+								   borderColor: '#8f8f8f',
+								   borderWidth: 2,
+							   }
+						   },
+						   '& .MuiOutlinedInput-root:hover fieldset': {
+							   borderColor: '#fff',
+						   }
+				   }}
+			/>
+		</Box>
 	);
 };
 
