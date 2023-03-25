@@ -15,6 +15,7 @@ import {useEffect, useState} from 'react';
 function App() {
     const [typeList, setTypeList] = useState([]);
     const [language, setLanguage] = useState("fr");
+    const [languageList, setLanguageList] = useState([]);
 
     const changeLanguage = (newLanguage) => {
       setLanguage(newLanguage);
@@ -25,6 +26,10 @@ function App() {
             const response = await fetch("https://pokedex-jgabriele.vercel.app/types.json");
             const data = await response.json();
             setTypeList(data);
+
+            const firstType = Object.keys(data)[0];
+            const languagesKey = Object.keys(data[firstType].translations);
+            setLanguageList(languagesKey.sort());
         }
         getTypeList();
 
@@ -43,7 +48,7 @@ function App() {
 
     return (
         <pokemonTypesContext.Provider value={typeList}>
-          <languageContext.Provider value={{ language, changeLanguage }}>
+          <languageContext.Provider value={{ language, changeLanguage, languageList }}>
             <RouterProvider router={router} />
           </languageContext.Provider>
         </pokemonTypesContext.Provider>
