@@ -15,7 +15,7 @@ const SearchBar = ({onSearch}) => {
 			alignItems: 'center',
 			justifyContent: 'center',
 			backgroundColor: '#242C38',
-			padding: '120px 20px 0px 20px',
+			padding: '100px 20px 0px 20px',
 			width: '100%'
 			}}
 		>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react';
-import './PokemonList.css';
 import PokemonCard from './PokemonCard/PokemonCard.jsx';
 import languageContext from '../../../languageContext';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 const PokemonList = ({searchText}) => {
 	const [pokemonList, setPokemonList] = useState([]);
@@ -37,15 +37,15 @@ const PokemonList = ({searchText}) => {
 
 
 	return (
-		<div className={"pokemonList"}>
+		<Grid container spacing={6} alignItems="center" justifyContent="center" sx={{marginTop: "20px"}}>
 			{
 				filteredPokemonList.map((pokemon, index) => {
 					return (
-						<PokemonCard key={index} id={pokemon.id} name={pokemon.names[language]} image={pokemon.image} types={pokemon.types} />
+						<Grid key={index}><PokemonCard id={pokemon.id} name={pokemon.names[language]} image={pokemon.image} types={pokemon.types} /></Grid>
 					);
 				})
 			}
-		</div>
+		</Grid>
 	);
 };
 

@@ -1,11 +1,10 @@
 import React from 'react';
-import './LanguageSelection.css';
 import { useContext } from 'react';
 import languageContext from '../../../languageContext';
-import {FormControl, InputBase, InputLabel, MenuItem, NativeSelect, Select, styled} from "@mui/material";
+import {FormControl, InputBase, MenuItem, Select, styled} from "@mui/material";
 
 
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
+const SelectStyle = styled(InputBase)(({ theme }) => ({
 	'label + &': {
 		marginTop: theme.spacing(3),
 	},
@@ -40,7 +39,7 @@ const LanguageSelection = () => {
 				id="languageSelect"
 				value={language}
 				onChange={(e) => {changeLanguage(e.target.value)}}
-				input={<BootstrapInput />}
+				input={<SelectStyle />}
 				MenuProps={{
 					anchorOrigin: {
 						vertical: "bottom",

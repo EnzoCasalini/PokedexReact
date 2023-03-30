@@ -1,16 +1,24 @@
 import React from 'react';
-import './Logo.css';
 import logo from './assets/logo_pokedex.svg';
 import {
 	Link
 } from "react-router-dom";
+import { Box } from "@mui/material";
 
 const Logo = () => {
 	return (
 		<Link to="/">
-			<div className={"logoContainer"}>
-				<img src={logo} alt="PokedexLogo" className={"logo"} />
-			</div>
+			<Box sx={{
+				width: "200px",
+				height: "100%",
+			}}>
+				<Box component="img" alt="PokedexLogo" src={logo} sx={{
+					width: "100%",
+					height: "100%",
+					objectFit: "contain",
+				}}>
+				</Box>
+			</Box>
 		</Link>
 	);
 };
