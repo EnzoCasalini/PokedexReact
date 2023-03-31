@@ -39,8 +39,9 @@ function App() {
         createRoutesFromElements(
             <>
                 <Route path="/" element={<AppWrapper />}>
-                    <Route path="/" element={<PokemonListPage/>}/>
-                    <Route path="/pokemon/:pokemonId" element={<PokemonDetailsPage/>} />
+                    <Route path="/" element={<PokemonListPage/>}>
+                        <Route path="/pokemon/:pokemonId" element={<PokemonDetailsPage/>} />
+                    </Route>
                 </Route>
             </>
         )
