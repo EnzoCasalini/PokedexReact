@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react';
 import PokemonCard from './PokemonCard/PokemonCard.jsx';
 import languageContext from '../../../languageContext';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import Grid from '@mui/material/Unstable_Grid2';
 import pokemonListContext from '../../../pokemonListContext.jsx';
 
 const PokemonList = ({searchText}) => {

@@ -53,7 +53,7 @@ const PokemonInfos = ({name, image, types = []}) => {
 						const typeName = pokemonTypes[type].translations[language];
 
 						return (
-							<Chip label={typeName} sx={{
+							<Chip label={typeName} key={index} sx={{
 								backgroundColor: color,
 								border: "1px solid black",
 								fontSize: "10px",
@@ -62,8 +62,7 @@ const PokemonInfos = ({name, image, types = []}) => {
 								margin: "0 4px",
 								padding: "1px 6px",
 							}}
-								  key={index}>
-							</Chip>
+							/>
 						);
 					}
 				})
