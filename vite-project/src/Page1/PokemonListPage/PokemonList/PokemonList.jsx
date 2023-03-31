@@ -2,24 +2,17 @@ import React, {useEffect, useState, useContext} from 'react';
 import PokemonCard from './PokemonCard/PokemonCard.jsx';
 import languageContext from '../../../languageContext';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import pokemonListContext from '../../../pokemonListContext.jsx';
 
 const PokemonList = ({searchText}) => {
-	const [pokemonList, setPokemonList] = useState([]);
 	const [filteredPokemonList, setFilteredPokemonList] = useState([]);
 
+	const pokemonList = useContext(pokemonListContext);
 	const { language, changeLanguage } = useContext(languageContext);
-
+	
 	useEffect(() => {
-		const getPokemons = async () => {
-			const response = await fetch('https://pokedex-jgabriele.vercel.app/pokemons.json');
-			const data = await response.json();
-
-			setPokemonList(data);
-			setFilteredPokemonList(data);
-		};
-
-		getPokemons();
-	}, []);
+		setFilteredPokemonList(pokemonList);
+	}, [pokemonList]);
 
 	useEffect(() => {
 		if (searchText !== '')
