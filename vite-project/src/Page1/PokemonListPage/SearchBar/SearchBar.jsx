@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box, TextField} from "@mui/material";
 
 const SearchBar = ({onSearch}) => {
@@ -7,7 +7,16 @@ const SearchBar = ({onSearch}) => {
 	const handleSearch = (event) => {
 		setSearch(event.target.value);
 		onSearch(event.target.value);
+		localStorage.setItem('search', event.target.value);
 	}
+
+	useEffect(() => {
+		const storedSearch = localStorage.getItem('search');
+		if (storedSearch) {
+			setSearch(storedSearch);
+			onSearch(storedSearch);
+		}
+	}, [onSearch]);
 
 	return (
 		<Box sx={{
@@ -21,6 +30,7 @@ const SearchBar = ({onSearch}) => {
 		>
 			<TextField id="outlined-basic"
 					   variant="outlined"
+					   autoFocus
 					   placeholder="Enter a Pokemon name"
 					   value={search}
 					   onChange={handleSearch}

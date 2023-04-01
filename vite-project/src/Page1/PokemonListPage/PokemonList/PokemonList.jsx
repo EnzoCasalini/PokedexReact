@@ -26,7 +26,7 @@ const PokemonList = ({searchText}) => {
 		else {
 			setFilteredPokemonList(pokemonList);
 		}
-	}, [searchText]);
+	}, [searchText, pokemonList]);
 
 
 	return (
