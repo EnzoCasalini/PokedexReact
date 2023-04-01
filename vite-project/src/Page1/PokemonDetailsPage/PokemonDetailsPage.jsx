@@ -69,10 +69,10 @@ const PokemonDetailsPage = () => {
 	{
 		console.log(pokemon);
 		return (
-			<Dialog onClose={onDismiss} open={true} PaperProps={{ sx: { width: "30%", height: "50%", justifyContent: "space-evenly", alignItems: "center" }}}>
+			<Dialog onClose={onDismiss} open={true} PaperProps={{ sx: { width: "40%", minWidth: "230px", height: "60%", minHeight: "400px", justifyContent: "space-evenly", alignItems: "center" }}}>
 				<DialogTitle sx={{fontSize: "28px"}}>{pokemon.names[language]}</DialogTitle>
 				<DialogContent sx={{ display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center" }}>
-					<img style={{width: "160px", height: "160px"}} src={pokemon.image} alt={`image of ${pokemon.names[language]}`} />
+					<img style={{width: "100px", height: "100px"}} src={pokemon.image} alt={`image of ${pokemon.names[language]}`} />
 					<Box>
 						<Typography sx={{textDecoration: "underline", textAlign: "center"}}>Height :</Typography> &nbsp; {(pokemon.height / 10).toFixed(1)}m
 					</Box>
